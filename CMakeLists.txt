@@ -11,4 +11,6 @@ add_executable(BlackjackSimulation main.c
         shoe.h
         card.c
         count.c
-        count.h)
+        count.h
+        strategy.c
+        strategy.h)
