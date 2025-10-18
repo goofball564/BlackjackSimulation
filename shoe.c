@@ -5,7 +5,7 @@
 #include "shoe.h"
 
 errno_t random_in_range_inclusive(unsigned int max, unsigned int* random_result) {
-    errno_t error_result = rand_s(random_result);
+    const errno_t error_result = rand_s(random_result);
 
     if (error_result == 0) {
         *random_result = *random_result % (max + 1);
@@ -14,7 +14,7 @@ errno_t random_in_range_inclusive(unsigned int max, unsigned int* random_result)
     return error_result;
 }
 
-void init_shoe(Shoe* shoe, int num_decks) {
+void init_shoe(Shoe* shoe, const int num_decks) {
     shoe->num_decks = num_decks;
     shoe->num_cards = CARDS_PER_DECK * num_decks;
     shoe->total_value = VALUE_PER_DECK * num_decks;
@@ -39,7 +39,7 @@ void reset_shoe(Shoe* shoe) {
 }
 
 Card take_card_shoe(Shoe* shoe) {
-    int i = --shoe->remaining_cards;
+    const int i = --shoe->remaining_cards;
     unsigned int j;
     errno_t error = random_in_range_inclusive(i, &j);
 
@@ -48,7 +48,7 @@ Card take_card_shoe(Shoe* shoe) {
         error = random_in_range_inclusive(i, &j);
     }
 
-    Card return_card = shoe->cards[j];
+    const Card return_card = shoe->cards[j];
     shoe->cards[j] = shoe->cards[i];
     shoe->cards[i] = return_card;
 

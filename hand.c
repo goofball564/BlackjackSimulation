@@ -7,7 +7,7 @@ void init_hand(Hand* hand) {
     hand->soft = false;
 }
 
-void add_card_hand(Hand* hand, Card card) {
+void add_card_hand(Hand* hand, const Card card) {
     hand->cards[hand->count++] = card;
     hand->value += card_values[card];
 
@@ -26,7 +26,7 @@ void add_card_hand(Hand* hand, Card card) {
 }
 
 Card take_card_hand(Hand* hand) {
-    Card card = hand->cards[hand->count-- - 1];
+    const Card card = hand->cards[hand->count-- - 1];
     hand->value -= card_values[card];
 
     if (card == ACE) {
