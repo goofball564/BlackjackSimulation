@@ -15,7 +15,6 @@ typedef struct {
     int remaining_cards;
     int total_value;
     int remaining_value;
-    int running_count;
 } Shoe;
 
 void init_shoe(Shoe* shoe, int num_decks);

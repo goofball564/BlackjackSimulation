@@ -9,4 +9,6 @@ add_executable(BlackjackSimulation main.c
         hand.c
         shoe.c
         shoe.h
-        card.c)
+        card.c
+        count.c
+        count.h)
